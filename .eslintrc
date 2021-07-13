@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "plugin:vue/vue3-recommended",
+    "eslint:recommended",
+    "@vue/typescript/recommended",
+    // 他のルールの下に追加
+    "@vue/prettier",
+    "@vue/prettier/@typescript-eslint"
+  ]
+}
