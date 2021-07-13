@@ -129,6 +129,11 @@ const App = () => {
               <CardMedia image={carImage} className={classes.media} />
               <Paper className={classes.paper}>
                 {deliveryDateTime
+                  ? `納車日は ${deliveryDateTime.toString()}`
+                  : null}
+              </Paper>
+              <Paper className={classes.paper}>
+                {deliveryDateTime
                   ? `納車まで：${displayDateMeta.days}日 ${displayDateMeta.h}時間 ${displayDateMeta.m}分 ${displayDateMeta.s}秒`
                   : null}
               </Paper>
