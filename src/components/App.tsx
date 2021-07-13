@@ -20,6 +20,7 @@ function getModalStyle() {
     transform: `translate(-${top}%, -${left}%)`,
   }
 }
+import carImage from '/static/model3_white.jpeg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -105,10 +106,7 @@ const App = () => {
         <div className={classes.root}>
           <Grid container spacing={3}>
             <Grid item xs={12}>
-              <CardMedia
-                image="/src/model3_white.jpeg"
-                className={classes.media}
-              />
+              <CardMedia image={carImage} className={classes.media} />
               <Paper
                 className={classes.paper}
               >{`納車日まで：${days}日 ${h}時間 ${m}分 ${s}秒`}</Paper>
