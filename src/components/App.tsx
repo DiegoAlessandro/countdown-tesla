@@ -9,7 +9,6 @@ import {
   Modal,
   Paper,
   TextField,
-  Typography,
 } from '@material-ui/core'
 function getModalStyle() {
   const top = 50
@@ -96,6 +95,7 @@ const App = () => {
   /** ローカルストレージ */
   const setLocalDeliveryDateTime = useCallback(
     (e) => {
+      if (!e.target.value) return
       localStorage.setItem('deliveryDateTime', e.target.value)
       setDeliveryDateTime(new Date(e.target.value))
       setInterval(refreshNowTime, 1000)
