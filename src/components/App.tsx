@@ -4,6 +4,7 @@ import {
   Container,
   CssBaseline,
   Grid,
+  IconButton,
   makeStyles,
   Modal,
   Paper,
@@ -21,7 +22,7 @@ function getModalStyle() {
   }
 }
 import carImage from '/static/model3_white.jpeg'
-
+import SettingsIcon from '@material-ui/icons/Settings'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -52,10 +53,15 @@ const useStyles = makeStyles((theme) => ({
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
+  margin: {
+    margin: theme.spacing(1),
+  },
+  extendedIcon: {
+    marginRight: theme.spacing(1),
+  },
 }))
 
 const App = () => {
-  // const [deliveryDateTime] = useState(new Date('2021-08-03T18:30:00+0900'))
   const [deliveryDateTime, setDeliveryDateTime] = useState(new Date())
   const [nowTime, setNowTime] = useState(new Date())
 
@@ -126,16 +132,26 @@ const App = () => {
         <div className={classes.root}>
           <Grid container spacing={3}>
             <Grid item xs={12}>
-              <CardMedia image={carImage} className={classes.media} />
               <Paper className={classes.paper}>
-                {deliveryDateTime
-                  ? `納車日は ${deliveryDateTime.toString()}`
-                  : null}
-              </Paper>
-              <Paper className={classes.paper}>
-                {deliveryDateTime
-                  ? `納車まで：${displayDateMeta.days}日 ${displayDateMeta.h}時間 ${displayDateMeta.m}分 ${displayDateMeta.s}秒`
-                  : null}
+                <CardMedia image={carImage} className={classes.media} />
+                <div>
+                  {deliveryDateTime
+                    ? `納車日は ${deliveryDateTime.toString()}`
+                    : null}
+                </div>
+                <div>
+                  {deliveryDateTime
+                    ? `納車まで：${displayDateMeta.days}日 ${displayDateMeta.h}時間 ${displayDateMeta.m}分 ${displayDateMeta.s}秒`
+                    : null}
+                  <IconButton
+                    aria-label="delete"
+                    className={classes.margin}
+                    onClick={handleOpen}
+                    size="small"
+                  >
+                    <SettingsIcon fontSize="inherit" />
+                  </IconButton>
+                </div>
               </Paper>
             </Grid>
           </Grid>
